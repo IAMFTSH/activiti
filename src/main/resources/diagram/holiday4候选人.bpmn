@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:activiti="http://activiti.org/bpmn" xmlns:tns="http://bpmn.io/schema/bpmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="Definitions_1vtzggh" name="" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:process id="holiday" name="请假流程" processType="None" isClosed="false" isExecutable="true">
+    <bpmn:startEvent id="StartEvent" name="开始节点" />
+    <bpmn:userTask id="Activity_1" name="填写请假单" activiti:assignee="zz" activiti:exclusive="true" />
+    <bpmn:userTask id="Activity_2" name="部门经理审批" activiti:candidateUsers="zs,ls,ww" activiti:exclusive="true" />
+    <bpmn:userTask id="Activity_0tapgnu" name="总经理审批" activiti:assignee="ll" activiti:exclusive="true" />
+    <bpmn:sequenceFlow id="Flow_1kvoweu" sourceRef="Activity_1" targetRef="Activity_2" />
+    <bpmn:sequenceFlow id="Flow_1lwfwwj" sourceRef="Activity_2" targetRef="Activity_0tapgnu" />
+    <bpmn:endEvent id="endEvent" name="终止节点" />
+    <bpmn:sequenceFlow id="Flow_1bquymc" sourceRef="Activity_0tapgnu" targetRef="endEvent" />
+    <bpmn:sequenceFlow id="Flow_18609jd" sourceRef="StartEvent" targetRef="Activity_1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram-_1" name="New Diagram" documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0">
+    <bpmndi:BPMNPlane bpmnElement="holiday">
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_18609jd" bpmnElement="Flow_18609jd" sourceElement="Shape-StartEvent" targetElement="Shape-Activity_1">
+        <di:waypoint x="368" y="234" />
+        <di:waypoint x="368" y="310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-1" y="-1" width="-1" height="-1" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_1bquymc" bpmnElement="Flow_1bquymc" sourceElement="Shape-Activity_0tapgnu" targetElement="Shape-endEvent">
+        <di:waypoint x="368" y="680" />
+        <di:waypoint x="368" y="742" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-1" y="-1" width="-1" height="-1" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_1lwfwwj" bpmnElement="Flow_1lwfwwj" sourceElement="Shape-Activity_2" targetElement="Shape-Activity_0tapgnu">
+        <di:waypoint x="370" y="530" />
+        <di:waypoint x="370" y="600" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-1" y="-1" width="-1" height="-1" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_1kvoweu" bpmnElement="Flow_1kvoweu" sourceElement="Shape-Activity_1" targetElement="Shape-Activity_2">
+        <di:waypoint x="370" y="390" />
+        <di:waypoint x="370" y="450" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-1" y="-1" width="-1" height="-1" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape-StartEvent" bpmnElement="StartEvent">
+        <dc:Bounds x="352" y="202" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="154" y="80" width="44" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-Activity_1" bpmnElement="Activity_1">
+        <dc:Bounds x="320" y="310" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="0" y="0" width="100" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-Activity_2" bpmnElement="Activity_2">
+        <dc:Bounds x="320" y="450" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="0" y="0" width="100" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-Activity_0tapgnu" bpmnElement="Activity_0tapgnu">
+        <dc:Bounds x="320" y="600" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="0" y="0" width="100" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-endEvent" bpmnElement="endEvent">
+        <dc:Bounds x="352" y="742" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="154" y="80" width="44" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
